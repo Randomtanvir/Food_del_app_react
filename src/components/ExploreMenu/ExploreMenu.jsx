@@ -11,7 +11,7 @@ const ExploreMenu = ({ category, setCategory }) => {
           mission is to satisfy your cravings and elevate your dining
           experience. One delicious meal at a time.
         </p>
-        <dir className="flex justify-between gap-[100px] text-center my-[30px] items-center overflow-x-scroll lg:overflow-auto">
+        <dir className="flex justify-between gap-[30px] text-center my-[30px] items-center overflow-x-scroll lg:overflow-auto">
           {menu_list.map((item, index) => (
             <div
               key={index}
