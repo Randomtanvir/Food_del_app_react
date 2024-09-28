@@ -12,9 +12,9 @@ const FoodDisplay = () => {
         Top dishes near you
       </h1>
       <div className="grid grid-cols-[repeat(auto-fill,_minmax(270px,_1fr))] mt-8 gap-7 gap-y-12 items-center content-center">
-        {food_list.map((item, index) => (
+        {food_list.map((item) => (
           <FoodItems
-            key={index}
+            key={item._id}
             id={item._id}
             name={item.name}
             image={item.image}
