@@ -4,14 +4,13 @@ import Hader from "@/components/Header/Hader";
 import { useState } from "react";
 
 const Home = () => {
-  const [category, setCategory] = useState("");
-  console.log(category);
+  const [category, setCategory] = useState("All");
 
   return (
     <div>
       <Hader />
       <ExploreMenu category={category} setCategory={setCategory} />
-      <FoodDisplay />
+      <FoodDisplay category={category} />
     </div>
   );
 };

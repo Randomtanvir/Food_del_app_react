@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,10 +7,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { assets } from "@/Assets/assets";
+import { useFoodItem } from "@/Contex/StoreContex";
 
 // eslint-disable-next-line react/prop-types
 const FoodItems = ({ id, name, image, price, description, category }) => {
-  const [itemCount, setItemCount] = useState(0);
+  const { addToCart, cartItem, removeToCart } = useFoodItem();
 
   return (
     <div className="max-w-[300px]">
@@ -23,10 +23,10 @@ const FoodItems = ({ id, name, image, price, description, category }) => {
             alt=""
           />
           <div className="absolute right-2 bottom-3">
-            {!itemCount ? (
+            {!cartItem[id] ? (
               <img
                 src={assets.add_icon_white}
-                onClick={() => setItemCount((prev) => prev + 1)}
+                onClick={() => addToCart(id)}
                 className="cursor-pointer"
               />
             ) : (
@@ -34,14 +34,14 @@ const FoodItems = ({ id, name, image, price, description, category }) => {
                 <img
                   src={assets.remove_icon_red}
                   className="cursor-pointer"
-                  onClick={() => setItemCount((prev) => prev - 1)}
+                  onClick={() => removeToCart(id)}
                   alt=""
                 />
-                <p className="text-xl text-white">{itemCount}</p>
+                <p className="text-xl text-white">{cartItem[id]}</p>
                 <img
                   src={assets.add_icon_green}
                   className="cursor-pointer"
-                  onClick={() => setItemCount((prev) => prev + 1)}
+                  onClick={() => addToCart(id)}
                   alt=""
                 />
               </div>

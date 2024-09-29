@@ -2,9 +2,8 @@ import React from "react";
 import { useFoodItem } from "@/Contex/StoreContex";
 import FoodItems from "../FoodItems/FoodItems";
 
-const FoodDisplay = () => {
+const FoodDisplay = ({ category }) => {
   const { food_list } = useFoodItem();
-  console.log(food_list);
 
   return (
     <div>
@@ -12,17 +11,21 @@ const FoodDisplay = () => {
         Top dishes near you
       </h1>
       <div className="grid grid-cols-[repeat(auto-fill,_minmax(270px,_1fr))] mt-8 gap-7 gap-y-12 items-center content-center">
-        {food_list.map((item) => (
-          <FoodItems
-            key={item._id}
-            id={item._id}
-            name={item.name}
-            image={item.image}
-            price={item.price}
-            description={item.description}
-            category={item.category}
-          />
-        ))}
+        {food_list.map((item) => {
+          if (category === "All" || category === item.category) {
+            return (
+              <FoodItems
+                key={Math.random()}
+                id={item._id}
+                name={item.name}
+                image={item.image}
+                price={item.price}
+                description={item.description}
+                category={item.category}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );
