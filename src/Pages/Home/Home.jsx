@@ -1,3 +1,4 @@
+import AppDownload from "@/components/AppDownload/AppDownload";
 import ExploreMenu from "@/components/ExploreMenu/ExploreMenu";
 import FoodDisplay from "@/components/FoodDisplay/FoodDisplay";
 import Hader from "@/components/Header/Hader";
@@ -11,6 +12,7 @@ const Home = () => {
       <Hader />
       <ExploreMenu category={category} setCategory={setCategory} />
       <FoodDisplay category={category} />
+      <AppDownload />
     </div>
   );
 };

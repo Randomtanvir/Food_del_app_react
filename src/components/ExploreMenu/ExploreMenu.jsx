@@ -4,12 +4,16 @@ import { menu_list } from "../../Assets/assets";
 const ExploreMenu = ({ category, setCategory }) => {
   return (
     <>
-      <div className="mt-10">
-        <h1 className="text-3xl font-medium">Explore our menu</h1>
-        <p className="text-sm text-textColor max-w-[60%] mt-2">
+      <div className="lg:mt-10 mt-4" id="menu">
+        <h1 className="sm:text-3xl text-xl font-medium">Explore our menu</h1>
+        <p className="text-sm text-textColor md:max-w-[60%]  mt-2">
           Choose from a diverse menu featuring a delectable array of dishes. Our
           mission is to satisfy your cravings and elevate your dining
           experience. One delicious meal at a time.
+          <br />
+          <span className="text-black font-semibold text-xs ">
+            Duble click for all menu.
+          </span>
         </p>
         <dir className="flex justify-between gap-[30px] text-center my-[30px] items-center overflow-x-scroll lg:overflow-auto">
           {menu_list.map((item, index) => (
