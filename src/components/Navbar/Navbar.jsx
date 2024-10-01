@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import { assets } from "@/Assets/assets";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
+import { useFoodItem } from "@/Contex/StoreContex";
+import { food_list } from "./../../Assets/assets";
+import forEach from "./../../../node_modules/lodash-es/forEach";
 
-const Navbar = () => {
+const Navbar = ({ setIsLoginPupupShow }) => {
   const [menu, setMenu] = useState("Home");
+  const { cartItem, food_list } = useFoodItem();
 
   return (
     <div className="flex justify-between items-center py-5 ">
-      <img
-        src={assets.logo}
-        alt="Logo_img"
-        className="w-[100px] lg:w-[150px] "
-      />
+      <Link to="/">
+        <img
+          src={assets.logo}
+          alt="Logo_img"
+          className="w-[100px] lg:w-[150px] "
+        />
+      </Link>
 
       <ul className="lg:flex gap-4 text-textColor hidden">
         <Link
@@ -57,10 +63,19 @@ const Navbar = () => {
           <img src={assets.search_icon} className="cursor-pointer" alt="" />
         </div>
         <div className="relative">
-          <img src={assets.basket_icon} className="cursor-pointer" alt="" />
-          <div className=" absolute -top-2 -right-1 w-[10px] h-[10px] bg-tomato rounded-full"></div>
+          <Link to="/cart">
+            {" "}
+            <img src={assets.basket_icon} className="cursor-pointer" alt="" />
+          </Link>
+          <div
+            className={`absolute -top-2 -right-1 w-[10px] h-[10px] bg-tomato rounded-full`}
+          ></div>
         </div>
-        <Button variant="outline" size="sm">
+        <Button
+          onClick={() => setIsLoginPupupShow(true)}
+          variant="outline"
+          size="sm"
+        >
           Sign-in
         </Button>
       </div>

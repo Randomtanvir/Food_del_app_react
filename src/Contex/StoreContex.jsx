@@ -17,6 +17,7 @@ const StoreContexProvider = ({ children }) => {
 
   useEffect(() => {
     console.log(cartItem);
+    console.log(cartItem[1]);
   }, [cartItem]);
 
   const removeToCart = (itemId) => {
