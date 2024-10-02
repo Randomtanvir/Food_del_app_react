@@ -7,15 +7,13 @@ const Cart = () => {
   return (
     <div className="mt-10">
       <div>
-        <div className="grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_1fr]">
-          <p>Item</p>
-          <p>Tittle</p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Total</p>
-          <p>
-            <img src={assets.cross_icon} alt="" />
-          </p>
+        <div className="grid grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr]">
+          <p className="text-xs sm:text-sm">Item</p>
+          <p className="text-xs sm:text-sm">Tittle</p>
+          <p className="text-xs sm:text-sm">Price</p>
+          <p className="text-xs sm:text-sm">Quantity</p>
+          <p className="text-xs sm:text-sm">Total</p>
+          <p className="text-tomato">❌</p>
         </div>
         <br />
         <hr />
@@ -23,19 +21,23 @@ const Cart = () => {
           if (cartItem[item._id]) {
             return (
               <div key={item._id}>
-                <div className="grid mt-5 grid-cols-[1fr_1.5fr_1fr_1fr_1fr_1fr]">
-                  <img className="w-14" src={item.image} alt="" />
-                  <p>{item.name}</p>
-                  <p>${item.price}</p>
-                  <p>{cartItem[item._id]}</p>
-                  <p>${item.price * cartItem[item._id]}</p>
-                  <p>
-                    <img
-                      onClick={() => removeToCart(item._id)}
-                      className="w-4 h-4 cursor-pointer"
-                      src={assets.cross_icon}
-                      alt=""
-                    />
+                <div className="grid mt-5 grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr]">
+                  <img
+                    className="sm:w-14 w-12 mr-1 sm:mr-0"
+                    src={item.image}
+                    alt=""
+                  />
+                  <p className="text-xs sm:text-sm">{item.name}</p>
+                  <p className="text-xs sm:text-sm">${item.price}</p>
+                  <p className="text-xs sm:text-sm">{cartItem[item._id]}</p>
+                  <p className="text-xs sm:text-sm">
+                    ${item.price * cartItem[item._id]}
+                  </p>
+                  <p
+                    className="cursor-pointer"
+                    onClick={() => removeToCart(item._id)}
+                  >
+                    ❌
                   </p>
                 </div>
                 <hr className="my-5" />

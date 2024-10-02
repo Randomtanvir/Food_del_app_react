@@ -3,8 +3,6 @@ import { assets } from "@/Assets/assets";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import { useFoodItem } from "@/Contex/StoreContex";
-import { food_list } from "./../../Assets/assets";
-import forEach from "./../../../node_modules/lodash-es/forEach";
 
 const Navbar = ({ setIsLoginPupupShow }) => {
   const [menu, setMenu] = useState("Home");
