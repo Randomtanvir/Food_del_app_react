@@ -6,7 +6,7 @@ import { useFoodItem } from "@/Contex/StoreContex";
 
 const Navbar = ({ setIsLoginPupupShow }) => {
   const [menu, setMenu] = useState("Home");
-  const { cartItem, food_list } = useFoodItem();
+  const { getTotalCartAmount } = useFoodItem();
 
   return (
     <div className="flex justify-between items-center py-5 ">
@@ -66,7 +66,9 @@ const Navbar = ({ setIsLoginPupupShow }) => {
             <img src={assets.basket_icon} className="cursor-pointer" alt="" />
           </Link>
           <div
-            className={`absolute -top-2 -right-1 w-[10px] h-[10px] bg-tomato rounded-full`}
+            className={`absolute -top-2 -right-1 w-[10px] h-[10px] bg-tomato rounded-full ${
+              getTotalCartAmount() > 0 ? "block" : "hidden"
+            }`}
           ></div>
         </div>
         <Button

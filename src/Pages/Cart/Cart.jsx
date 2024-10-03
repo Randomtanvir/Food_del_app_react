@@ -2,7 +2,8 @@ import { assets } from "@/Assets/assets";
 import { useFoodItem } from "@/Contex/StoreContex";
 
 const Cart = () => {
-  const { food_list, cartItem, removeToCart } = useFoodItem();
+  const { food_list, cartItem, removeToCart, getTotalCartAmount } =
+    useFoodItem();
 
   return (
     <div className="mt-10">
@@ -45,6 +46,53 @@ const Cart = () => {
             );
           }
         })}
+      </div>
+      <div className="flex flex-col md:flex-row  md:justify-between mt-20 gap-[max(12vw,20px)]">
+        <div className="flex-[1] order-2 md:order-1">
+          <h1 className="text-2xl text-black font-semibold mb-4">
+            Cart Totals
+          </h1>
+          <div className="flex justify-between">
+            <h3 className="text-sm text-[#171717] ">Subtotal</h3>
+            <p className="text-sm text-[#171717] ">${getTotalCartAmount()}</p>
+          </div>
+          <hr className="my-3" />
+          <div className="flex justify-between">
+            <h3 className="text-sm text-[#171717] ">Delivery Fee</h3>
+            <p className="text-sm text-[#171717] ">
+              ${getTotalCartAmount() > 0 ? 2 : 0}
+            </p>
+          </div>
+          <hr className="my-3" />
+          <div className="flex justify-between">
+            <h3 className="text-black font-medium text-lg">Total</h3>
+            <p className="text-black font-medium text-lg">
+              ${getTotalCartAmount() > 0 ? getTotalCartAmount() + 2 : 0}
+            </p>
+          </div>
+
+          <button className="bg-tomato px-5 mt-4 py-3 text-white text-sm rounded transition duration-300 ease-in-out hover:bg-[#f3493d]">
+            PROCEED TO CHECKOUT
+          </button>
+        </div>
+        <div className="flex-[1] order-1 md:order-2">
+          <div>
+            <p className="text-sm text-[#171717] ">
+              {" "}
+              If you have a promo code, enter here.
+            </p>
+            <div className="bg-[#eaeaea] mt-2 rounded flex justify-between">
+              <input
+                className="bg-transparent border-none outline-none px-4 flex-[1]"
+                type="text"
+                placeholder="Promo code"
+              />
+              <button className="bg-tomato h-10 rounded px-5  text-white transition duration-300 ease-in-out hover:bg-[#f3493d]">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
