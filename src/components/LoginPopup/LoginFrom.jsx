@@ -135,11 +135,11 @@ const LoginFrom = ({ setIsLoginPupupShow }) => {
           </div>
         </CardContent>
         <CardFooter>
-          {state === "login" ? (
+          {state === "Sign Up" ? (
             <p className="text-sm">
               Already have an account?
               <span
-                onClick={() => setState("Sign Up")}
+                onClick={() => setState("login")}
                 className="text-tomato cursor-pointer text-xs"
               >
                 click here
@@ -147,12 +147,12 @@ const LoginFrom = ({ setIsLoginPupupShow }) => {
             </p>
           ) : (
             <p className="text-sm">
-              Create account for
+              Create account for ,
               <span
-                onClick={() => setState("login")}
+                onClick={() => setState("Sign Up")}
                 className="text-tomato cursor-pointer text-xs"
               >
-                ,Click here
+                Click here
               </span>
             </p>
           )}

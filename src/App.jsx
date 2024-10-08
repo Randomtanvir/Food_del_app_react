@@ -6,6 +6,8 @@ import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 import LoginFrom from "./components/LoginPopup/LoginFrom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [isLoginPupupShow, setIsLoginPupupShow] = useState(false);
@@ -25,6 +27,7 @@ function App() {
           <Route path="/placeorder" element={<PlaceOrder />} />
         </Routes>
       </div>
+      <ToastContainer />
       <Footer />
     </>
   );

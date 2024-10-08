@@ -1,9 +1,10 @@
-import { assets } from "@/Assets/assets";
 import { useFoodItem } from "@/Contex/StoreContex";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { food_list, cartItem, removeToCart, getTotalCartAmount } =
     useFoodItem();
+  const navigate = useNavigate();
 
   return (
     <div className="mt-10">
@@ -71,7 +72,10 @@ const Cart = () => {
             </p>
           </div>
 
-          <button className="bg-tomato px-5 mt-4 py-3 text-white text-sm rounded transition duration-300 ease-in-out hover:bg-[#f3493d]">
+          <button
+            onClick={() => navigate("/placeorder")}
+            className="bg-tomato px-5 mt-4 py-3 text-white text-sm rounded transition duration-300 ease-in-out hover:bg-[#f3493d]"
+          >
             PROCEED TO CHECKOUT
           </button>
         </div>
@@ -83,11 +87,14 @@ const Cart = () => {
             </p>
             <div className="bg-[#eaeaea] mt-2 rounded flex justify-between">
               <input
-                className="bg-transparent border-none outline-none px-4 flex-[1]"
+                className="bg-transparent border-none outline-none px-4 md:flex-[1] w-full "
                 type="text"
                 placeholder="Promo code"
               />
-              <button className="bg-tomato h-10 rounded px-5  text-white transition duration-300 ease-in-out hover:bg-[#f3493d]">
+              <button
+                type="submit"
+                className="bg-tomato h-10 rounded px-5  text-white transition duration-300 ease-in-out hover:bg-[#f3493d]"
+              >
                 Submit
               </button>
             </div>

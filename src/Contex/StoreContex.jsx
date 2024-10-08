@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { food_list } from "../Assets/assets";
+import { toast } from "react-toastify";
 
 export const StoreContex = createContext(null);
 
@@ -10,8 +11,10 @@ const StoreContexProvider = ({ children }) => {
   const addToCart = (itemId) => {
     if (!cartItem[itemId]) {
       setCartItem((prev) => ({ ...prev, [itemId]: 1 }));
+      toast.success("Item add successfully");
     } else {
       setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+      toast.success("Item add successfully");
     }
   };
 
@@ -28,6 +31,7 @@ const StoreContexProvider = ({ children }) => {
 
   const removeToCart = (itemId) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    toast.error("Item remove successfully");
   };
   const contexValue = {
     food_list,
@@ -41,6 +45,7 @@ const StoreContexProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useFoodItem = () => {
   const value = useContext(StoreContex);
   return value;
