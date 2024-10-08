@@ -22,7 +22,7 @@ const FoodItems = ({ id, name, image, price, description, category }) => {
             className="rounded-t-md mb-2 w-full transition-all hover:scale-105"
             alt=""
           />
-          <div className="absolute right-2 bottom-3">
+          <div className="absolute right-2 bottom-3 bg-white rounded-full p-1">
             {!cartItem[id] ? (
               <img
                 src={assets.add_icon_white}
@@ -37,7 +37,7 @@ const FoodItems = ({ id, name, image, price, description, category }) => {
                   onClick={() => removeToCart(id)}
                   alt=""
                 />
-                <p className="text-xl text-white">{cartItem[id]}</p>
+                <p className="text-xl text-black">{cartItem[id]}</p>
                 <img
                   src={assets.add_icon_green}
                   className="cursor-pointer"
